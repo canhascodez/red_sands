@@ -4,7 +4,7 @@ Red Sands is a Ruby implementation of a board game I enjoy. It's mostly an excus
 
 ## Description
 
-I've been interested in types and Ruby for a while, often in the form of Crystal-lang. However, for this project it was readily apparent that there would be a substantial amount of metaprogramming involved, which is not Crystal's finest point. The decision was therefore made to use Ruby and Sorbet.
+I've been interested in types and Ruby for a while, often in the form of Crystal-lang. However, for this project it was readily apparent that there would be a substantial amount of metaprogramming involved, which is not Crystal's finest point. The decision was therefore made to use Ruby and Sorbet. It's been interesting using Sorbet with a metaprogramming-heavy project.
 
 ## Installation
 
