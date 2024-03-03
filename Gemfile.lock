@@ -13,6 +13,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     ast (2.4.2)
+    brakeman (6.1.2)
+      racc
     byebug (11.1.3)
     coderay (1.1.3)
     concurrent-ruby (1.2.0)
@@ -45,6 +47,7 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
+    racc (1.7.3)
     rainbow (3.1.1)
     rbi (0.0.16)
       ast
@@ -94,6 +97,7 @@ GEM
       sorbet-static (= 0.5.10687)
     sorbet-runtime (0.5.10687)
     sorbet-static (0.5.10687-universal-darwin-22)
+    sorbet-static (0.5.10687-x86_64-linux)
     sorbet-static-and-runtime (0.5.10687)
       sorbet (= 0.5.10687)
       sorbet-runtime (= 0.5.10687)
@@ -135,8 +139,10 @@ GEM
 
 PLATFORMS
   x86_64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
+  brakeman
   bundler (~> 2.4.6)
   deep_dup (~> 0.0.3)
   factory_bot (~> 6.2.1)

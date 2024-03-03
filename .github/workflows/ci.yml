@@ -1,31 +1,19 @@
 name: Tests
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-    types: [ opened, synchronize, reopened ]
+on: [ push, pull_request ]
 
 jobs:
   test:
     strategy:
       fail-fast: false
-      matrix:
-        ruby: [ 3.2.1 ]
     runs-on: ubuntu-latest
     steps:
-      - name: Install Ruby
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby }}
-      - name: Checkout code
-        uses: actions/checkout@main
-      - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3 --path vendor/bundle --clean
-      - name: Run sorbet with reviewdog
-        uses: mihyaeru21/action-sorbet@v1.0.2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          bundler-cache: true
+          ruby-version: .tool-versions
       - name: Run tests
         run: bundle exec rspec
