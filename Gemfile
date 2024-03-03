@@ -13,10 +13,6 @@ gem 'state_machines', '~> 0.6.0'
 gem 'tapioca', require: false, group: :development
 gem 'wisper', '~> 2.0.0'
 
-group :test do
-  gem 'rubocop-sorbet', require: false
-end
-
 group :development do
   gem 'bundler-audit'
   gem 'factory_bot', '~> 6.4.6'
@@ -31,5 +27,6 @@ end
 group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
+  gem 'rubocop-sorbet', require: false
   gem 'wisper-rspec'
 end
