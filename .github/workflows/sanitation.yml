@@ -1,0 +1,39 @@
+# this workflow runs bundle audit, brakeman, and rubocop
+# these things probably don't need to run every commit, but probably every push
+
+name: Code Sanitation Check
+
+on: [ pull_request ]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    env:
+      REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: .tool-versions
+      - name: Install reviewdog
+        uses: reviewdog/action-setup@v1
+        id: reviewdog
+      - name: Bundle audit with reviewdog
+        if: always()
+        uses: tomferreira/action-bundler-audit@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run sorbet with reviewdog
+        if: always()
+        uses: mihyaeru21/action-sorbet@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run rubocop with reviewdog
+        if: always()
+        uses: reviewdog/action-rubocop@v2
+        with:
+          skip_install: true
+          use_bundler: true
