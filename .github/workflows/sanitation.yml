@@ -21,21 +21,26 @@ jobs:
           ruby-version: .tool-versions
       - name: Install reviewdog
         uses: reviewdog/action-setup@v1
+        id: reviewdog
       - name: Bundle audit with reviewdog
+        if: always()
         uses: tomferreira/action-bundler-audit@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run sorbet with reviewdog
+        if: always()
         uses: mihyaeru21/action-sorbet@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run brakeman with reviewdog
+        if: always()
         uses: reviewdog/action-brakeman@v2.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           skip_install: true
           use_bundler: true
       - name: Run rubocop with reviewdog
+        if: always()
         uses: reviewdog/action-rubocop@v2
         with:
           skip_install: true
