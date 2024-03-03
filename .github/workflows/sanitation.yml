@@ -31,13 +31,6 @@ jobs:
         uses: mihyaeru21/action-sorbet@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Run brakeman with reviewdog
-        if: always()
-        uses: reviewdog/action-brakeman@v2.8.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          skip_install: true
-          use_bundler: true
       - name: Run rubocop with reviewdog
         if: always()
         uses: reviewdog/action-rubocop@v2

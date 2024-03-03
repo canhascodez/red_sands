@@ -18,7 +18,6 @@ group :test do
 end
 
 group :development do
-  gem 'brakeman'
   gem 'bundler-audit'
   gem 'ruby-lsp', require: false
 end

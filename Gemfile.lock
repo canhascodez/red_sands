@@ -13,8 +13,6 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     ast (2.4.2)
-    brakeman (6.1.2)
-      racc
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
@@ -50,7 +48,6 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    racc (1.7.3)
     rainbow (3.1.1)
     rbi (0.0.16)
       ast
@@ -145,7 +142,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  brakeman
   bundler (~> 2.4.6)
   bundler-audit
   deep_dup (~> 0.0.3)
